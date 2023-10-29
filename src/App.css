@@ -1,38 +1,64 @@
 .App {
-  text-align: center;
+  background: rgb(0,0,47);
+  background: linear-gradient(153deg, rgb(13, 0, 58) 0%, rgb(72, 1, 85) 100%);
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  font-size: 40px;
+  position: absolute;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.star {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  transition:  ease-out 1s all;
+  animation: spin 4s infinite, fadeInOut 2s infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.spaceship{
+  position: absolute;
+  animation: spaceship 6s infinite linear;
+  left: 30%;
+  padding-right: 50%;
+  /* margin-left: 25%; */
+}
+
+@keyframes spaceship {
+  from {
+      transform: rotate(0deg);
+  }
+  to {transform:  rotate(360deg);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes spin {
   from {
-    transform: rotate(0deg);
+      transform:rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform:rotate(360deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+      filter: drop-shadow(0 0 4px #ffff0000);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px yellow);
+  }
+  100% {
+    opacity: 0;
+    filter: drop-shadow(0 0 4px #ffff0000);
   }
 }
