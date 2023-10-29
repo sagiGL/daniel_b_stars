@@ -1,3 +1,8 @@
+html,body{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
 .App {
   background: rgb(0,0,47);
   background: linear-gradient(153deg, rgb(13, 0, 58) 0%, rgb(72, 1, 85) 100%);
@@ -25,12 +30,23 @@
 
 .spaceship{
   position: absolute;
-  animation: spaceship 6s infinite linear;
-  left: 30%;
-  padding-right: 50%;
+  transition:  ease-out 0.8s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* animation: spaceship 6s infinite linear; */
+  /* left: 30%;
+  padding-right: 50%; */
   /* margin-left: 25%; */
 }
 
+.FIRE::after {
+  content: '';
+  position: absolute;
+  border: red solid 1px;
+  height: 100vh;
+  bottom: 100px;
+}
 @keyframes spaceship {
   from {
       transform: rotate(0deg);
