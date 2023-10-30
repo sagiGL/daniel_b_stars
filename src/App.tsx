@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Star from "./assets/star";
 import SpaceShip from "./assets/spaceship";
@@ -60,11 +60,10 @@ function App() {
 
       if (activeKeys.has(" ")) {
         newState = "FIRE";
-        setTimeout(() => {
-          setSpaceship((prev) => ({ ...prev, state: "" }));
-        }, 500);
+        // setTimeout(() => {
+        //   setSpaceship((prev) => ({ ...prev, state: "" }));
+        // }, 500);
       }
-
       return { ...prev, state: newState };
     });
   };
@@ -123,6 +122,49 @@ function App() {
         >
           <SpaceShip size={80} />
         </div>
+      </div>
+      <div className="buttons">
+        <button
+          className="btn btn-up"
+          onMouseDown={() =>
+            handleKeyPress({ key: "ArrowUp" } as KeyboardEvent)
+          }
+        >
+          UP
+        </button>
+        <button
+          className="btn btn-left"
+          onMouseDown={() =>
+            handleKeyPress({ key: "ArrowLeft" } as KeyboardEvent)
+          }
+        >
+          LEFT
+        </button>
+        <button
+          className="btn btn-right"
+          onMouseDown={() =>
+            handleKeyPress({ key: "ArrowRight" } as KeyboardEvent)
+          }
+        >
+          RIGHT
+        </button>
+
+        <button
+          className="btn btn-down"
+          onMouseDown={() =>
+            handleKeyPress({ key: "ArrowDown" } as KeyboardEvent)
+          }
+        >
+          DOWN
+        </button>
+        <button
+          aria-pressed={activeKeys.has(" ")}
+          className={`btn btn-space`}
+          onMouseDown={() => handleKeyPress({ key: " " } as KeyboardEvent)}
+          onMouseUp={() => handleKeyRelease({ key: " " } as KeyboardEvent)}
+        >
+          SPACE
+        </button>
       </div>
     </div>
   );

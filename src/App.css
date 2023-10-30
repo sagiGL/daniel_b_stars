@@ -47,6 +47,36 @@ html,body{
   height: 100vh;
   bottom: 100px;
 }
+
+.buttons {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 60px);
+  grid-template-rows: repeat(2, 40px);
+  gap: 8px;
+  position: absolute;
+  bottom: 20px;
+
+}
+  
+.btn-up { grid-area: 1 / 4 / 2 / 5; }
+.btn-right { grid-area: 2 / 5 / 3 / 6; }
+.btn-down { grid-area: 2 / 4 / 3 / 5; }
+.btn-left { grid-area: 2 / 3 / 3 / 4; }
+.btn-space { grid-area: 2 / 1 / 3 / 2; }
+.btn {
+  background: transparent;
+  border: white solid 1px;
+  color: white;
+  height: 40px;
+  /* width: 60px; */
+  border-radius: 8px;
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.btn:active, .btn[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.5);
+}
 @keyframes spaceship {
   from {
       transform: rotate(0deg);
